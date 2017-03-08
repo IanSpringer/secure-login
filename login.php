@@ -1,12 +1,15 @@
 <?php
+// if ( $_SEESSION['logged_in'] == false){
+//     $_SESSION['message'] = "";
+// }
 /* User login process, checks if user exists and password is correct */
 
 // Escape email to protect against SQL injections
 $email = $mysqli->escape_string($_POST['email']);
 $result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
-
+$_SESSION['message'] = "<div class='error-msg'></div>";
 if ( $result->num_rows == 0 ){ // User doesn't exist
-    $_SESSION['message'] = "User with that email doesn't exist!";
+    $_SESSION['message'] = "<div class='error-msg'>User with that email doesn't exist!</div>";
     header("location: index.php");
 }
 else { // User exists
@@ -25,8 +28,8 @@ else { // User exists
         header("location: profile.php");
     }
     else {
-        $_SESSION['message'] = "You have entered wrong password, try again!";
-        header("location: error.php");
+        $_SESSION['message'] = "<div class='error-msg'>You have entered the wrong password, try again!</div>";
+        header("location: index.php");
     }
 }
 

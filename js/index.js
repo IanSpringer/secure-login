@@ -1,7 +1,7 @@
-$('.form').find('input, textarea').on('keyup blur focus', function (e) {
-  
+$('.form').find('.password-input, .email-input').on('keyup blur focus', function (e) {
+
   var $this = $(this),
-      label = $this.prev('label');
+      label = $this.siblings('label');
 
 	  if (e.type === 'keyup') {
 			if ($this.val() === '') {
@@ -11,33 +11,43 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
         }
     } else if (e.type === 'blur') {
     	if( $this.val() === '' ) {
-    		label.removeClass('active highlight'); 
+    		label.removeClass('active highlight');
 			} else {
-		    label.removeClass('highlight');   
-			}   
+		    label.removeClass('highlight');
+			}
     } else if (e.type === 'focus') {
-      
+
       if( $this.val() === '' ) {
-    		label.removeClass('highlight'); 
-			} 
+    		label.removeClass('highlight');
+			}
       else if( $this.val() !== '' ) {
 		    label.addClass('highlight');
 			}
     }
 
 });
+function cLog(){
+  console.log($('.email').html());
+};
+// setTimeout(cLog, 3000);
+// var inputVal = $('input').val()
+// if(inputVal.length){
+//   $(this).siblings('label').addClass('active');
+//   console.log(inputVal)
+// }
+console.log("hello")
 
 $('.tab a').on('click', function (e) {
-  
+
   e.preventDefault();
-  
+
   $(this).parent().addClass('active');
   $(this).parent().siblings().removeClass('active');
-  
+
   target = $(this).attr('href');
 
   $('.tab-content > div').not(target).hide();
-  
+
   $(target).fadeIn(600);
-  
+
 });

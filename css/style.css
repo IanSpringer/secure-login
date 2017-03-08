@@ -118,7 +118,8 @@ label {
 }
 label .req {
   margin: 2px;
-  color: #fe6159;
+  /*color: #fe6159;*/
+  color: #39B7CD;
 }
 
 label.active {
@@ -151,7 +152,9 @@ input, textarea {
 }
 input:focus, textarea:focus {
   outline: 0;
-  border-color: #fe6159;
+  /*border-color: #fe6159;*/
+  border-color: #39B7CD;
+  background: none;
 }
 
 textarea {
@@ -184,17 +187,19 @@ textarea {
   border-radius: 0;
   padding: 15px 0;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 300;
   text-transform: uppercase;
   letter-spacing: .1em;
-  background: #555555;
+  /*background: #555555;*/
+  background: #39B7CD;
   color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
 .button:hover, .button:focus {
-  background: #444444;
+  /*background: #444444;*/
+  background: #50A6C2;
 }
 
 .button-block {
@@ -206,3 +211,19 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+.error-msg{
+  border: 2px solid rgb(196, 9, 9);
+  text-align: center;
+  padding: 1.5em;
+  background: rgba(196, 9, 9, .4);
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  color: white;
+}
+input:-webkit-autofill {
+    background-color: #FAFFBD !important;
+    -webkit-box-shadow: 0 0 0px 1000px #333333 inset;
+    -webkit-text-fill-color: white;
+}
+

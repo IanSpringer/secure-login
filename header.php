@@ -1,5 +1,6 @@
 <?php
 session_start();
+$url = $_SERVER['REQUEST_URI'];
 if ( $_SESSION['logged_in'] != 1 ) {
     header("location: index.php");
 }
@@ -9,8 +10,15 @@ else {
     $last_name = $_SESSION['last_name'];
     $email = $_SESSION['email'];
     $active = $_SESSION['active'];
-    $_SESSION['last-activity'] = time();
-    $lastActivity = $_SESSION['last-activity'];
+    $loginTime = $_SESSION['login_time'];
+    $now = time();
+    if($now - $loginTime > 60 * 30){
+      session_destroy();
+      header("location: index.php");
+    }else{
+      $_SESSION['login_time'] = $now;
+      $now = time();
+    }
 }
 
 ?>

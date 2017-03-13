@@ -1,4 +1,5 @@
 <?php
+$url = $_SERVER['REQUEST_URI'];
 // if ( $_SEESSION['logged_in'] == false){
 //     $_SESSION['message'] = "";
 // }
@@ -24,12 +25,8 @@ else { // User exists
 
         // This is how we'll know the user is logged in
         $_SESSION['logged_in'] = true;
-        $_SESSION['time'] = time();
+        $_SESSION['login_time'] = time();
 
-        $now = time();
-        if($_SESSION['time'] - $now > 1){
-            session_destroy();
-        };
 
         header("location: profile.php");
     }

@@ -24,6 +24,12 @@ else { // User exists
 
         // This is how we'll know the user is logged in
         $_SESSION['logged_in'] = true;
+        $_SESSION['time'] = time();
+
+        $now = time();
+        if($_SESSION['time'] - $now > 1){
+            session_destroy();
+        };
 
         header("location: profile.php");
     }

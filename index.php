@@ -19,11 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     }
 }
-
-require 'header.php';
 ?>
 
-
+<head>
+  <?php
+    include 'css/css.html';
+  ?>
+</head>
 <body>
   <title>Sign-Up/Login Form</title>
 
